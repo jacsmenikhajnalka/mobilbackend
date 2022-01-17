@@ -14,7 +14,30 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.post('/szavazatfelvitel', (req, res) => {
 
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'marveladatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('insert into szavazatfelvitel values (null, '+req.body.bevitel1+' )', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
 app.get('/konyv_fajtai', (req, res) => {
 
     var mysql = require('mysql')
