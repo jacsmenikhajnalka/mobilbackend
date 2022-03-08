@@ -21,12 +21,12 @@ app.post('/szavazatfelvitel', (req, res) => {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'marveladatb'
+    database: 'konyv_adatb'
   })
   
   connection.connect()
   
-  connection.query('insert into szavazatfelvitel values (null, '+req.body.bevitel1+' )', function (err, rows, fields) {
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=1', function (err, rows, fields) {
     if (err) throw err
   
     console.log("Szavazatát rögzítettük!")
@@ -74,7 +74,7 @@ app.get('/konyv_fajtai', (req, res) => {
     
     connection.connect()
     
-    connection.query('SELECT `leiras_konyv`, konyv.konyv_kep, konyv.konyv_nev FROM `leiras` INNER JOIN konyv_fajtai ON leiras_id=konyv_fajtai.konyv_id INNER JOIN konyv ON konyv_fajtai.konyv_id = konyv.konyv_id', function (err, rows, fields) {
+    connection.query('SELECT * FROM `leiras` INNER JOIN konyv_fajtai ON leiras_id=konyv_fajtai.konyv_id INNER JOIN konyv ON konyv_fajtai.konyv_id = konyv.konyv_id', function (err, rows, fields) {
       if (err) throw err
     
       console.log(rows)
