@@ -38,6 +38,126 @@ app.post('/szavazatfelvitel', (req, res) => {
 
 
 })
+app.post('/szavazatfelvitel2', (req, res) => {
+
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'konyv_adatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=2', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
+app.post('/szavazatfelvitel3', (req, res) => {
+
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'konyv_adatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=3', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
+app.post('/szavazatfelvitel4', (req, res) => {
+
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'konyv_adatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=4', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
+app.post('/szavazatfelvitel5', (req, res) => {
+
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'konyv_adatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=5', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
+app.post('/szavazatfelvitel6', (req, res) => {
+
+  var mysql = require('mysql')
+  var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'konyv_adatb'
+  })
+  
+  connection.connect()
+  
+  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=6', function (err, rows, fields) {
+    if (err) throw err
+  
+    console.log("Szavazatát rögzítettük!")
+    res.send("Szavazatát rögzítettük!")
+  })
+  
+  connection.end()
+
+
+
+})
 app.get('/konyv_fajtai', (req, res) => {
 
     var mysql = require('mysql')
