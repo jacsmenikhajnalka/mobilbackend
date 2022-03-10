@@ -26,7 +26,7 @@ app.post('/szavazatfelvitel', (req, res) => {
   
   connection.connect()
   
-  connection.query('UPDATE szavazatfelvitel SET szavazo_ertek=(szavazo_ertek+1)WHERE szavazat_id=1', function (err, rows, fields) {
+  connection.query('INSERT INTO szavazatfelvitel values (NULL,'+req.body.bevitel1+')', function (err, rows, fields) {
     if (err) throw err
   
     console.log("Szavazatát rögzítettük!")
